@@ -13,6 +13,12 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+
+/**
+ * Class AppModule required for instantiating our dependency injections for Hilt
+ *
+ * @author Zac Durber
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 class AppModule {

@@ -29,10 +29,20 @@ class MoodRepository @Inject constructor(): IMoodRepository {
         return list
     }
 
+    /**
+     * Retrieve one Mood entry from the repository
+     *
+     * @return a mood entry
+     */
      fun get(): Mood {
         return Mood(6,6, LocalDateTime.now())
     }
 
+    /**
+     * Get all Mood entries from the repository
+     *
+     * @return an arraylist of Moods
+     */
      override fun getAll(): ArrayList<Mood> {
         return getData()
     }

@@ -1,4 +1,4 @@
-package com.example.youmood.ui.theme
+package com.example.youmood.view.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

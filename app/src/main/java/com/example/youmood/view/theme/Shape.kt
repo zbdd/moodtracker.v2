@@ -1,4 +1,4 @@
-package com.example.youmood.ui.theme
+package com.example.youmood.view.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
