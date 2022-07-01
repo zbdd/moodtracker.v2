@@ -1,7 +1,6 @@
 package com.example.youmood
 
 import com.example.youmood.model.IMoodRepository
-import com.example.youmood.model.Mood
 import com.example.youmood.model.MoodRepository
 import com.example.youmood.presentation.IMainViewModel
 import com.example.youmood.presentation.MainViewModel

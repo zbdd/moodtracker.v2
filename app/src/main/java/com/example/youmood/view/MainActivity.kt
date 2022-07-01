@@ -3,12 +3,19 @@ package com.example.youmood.view
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.youmood.model.Mood
 import com.example.youmood.presentation.IMainViewModel
 import com.example.youmood.view.theme.YouMoodTheme
@@ -35,6 +42,7 @@ class MainActivity @Inject constructor() : ComponentActivity(), IMainView {
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             YouMoodTheme {
                 // A surface container using the 'background' color from the theme
@@ -42,7 +50,8 @@ class MainActivity @Inject constructor() : ComponentActivity(), IMainView {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    displayList(viewModel.getMoodList())
+                    //displayList(viewModel.getMoodList())
+                    showList()
                 }
             }
         }
@@ -54,7 +63,10 @@ class MainActivity @Inject constructor() : ComponentActivity(), IMainView {
      */
     @Composable
     fun displayList(moodList: MutableList<Mood>) {
-        LazyColumn() {
+        LazyColumn(
+            modifier = Modifier.fillMaxWidth(),
+            verticalArrangement = Arrangement.spacedBy(5.dp)
+        ) {
             items(moodList) {
                 mood -> displayMoodRow(mood)
             }
@@ -68,7 +80,20 @@ class MainActivity @Inject constructor() : ComponentActivity(), IMainView {
     @Composable
     fun displayMoodRow(mood: Mood) {
         val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy", Locale.ENGLISH)
-        Text(text = mood.mood.toString())
-        Text(text = formatter.format(mood.dateTime))
+        Row (modifier = Modifier
+            .background(Color.DarkGray, shape = RoundedCornerShape(15.dp))
+            .fillMaxWidth()
+            .padding(all = 15.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceEvenly) {
+            Text(text = formatter.format(mood.dateTime), color = MaterialTheme.colors.primary)
+            Text(text = mood.mood.toString(), color = MaterialTheme.colors.primary, fontWeight = FontWeight.Bold)
+        }
+    }
+
+    @Preview
+    @Composable
+    fun showList() {
+        displayList(viewModel.getMoodList())
     }
 }
