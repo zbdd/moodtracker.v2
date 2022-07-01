@@ -1,9 +1,6 @@
 package com.example.youmood.model
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.lifecycle.MutableLiveData
-import com.android.volley.RequestQueue
 import java.time.LocalDateTime
 import javax.inject.Inject
 
@@ -13,7 +10,7 @@ import javax.inject.Inject
  * @author Zac Durber
  */
 class MoodRepository @Inject constructor(): IMoodRepository {
-    var moodsList = MutableLiveData<ArrayList<Mood>>()
+    var moodList = MutableLiveData<ArrayList<Mood>>()
 
     /**
      * Test data for simulating a call to local storage
@@ -21,10 +18,10 @@ class MoodRepository @Inject constructor(): IMoodRepository {
      */
     override fun getData(): ArrayList<Mood>{
         val list = ArrayList<Mood>();
-        list.add(Mood(1,1, LocalDateTime.now()))
-        list.add(Mood(2,3, LocalDateTime.now().minusDays(1)))
-        list.add(Mood(3,2, LocalDateTime.now().minusDays(2)))
-        list.add(Mood(4,5, LocalDateTime.now().minusDays(3)))
+        list.add(Mood(1,1, LocalDateTime.now(), arrayListOf(1)))
+        list.add(Mood(2,3, LocalDateTime.now().minusDays(1), arrayListOf(1)))
+        list.add(Mood(3,2, LocalDateTime.now().minusDays(2), arrayListOf()))
+        list.add(Mood(4,5, LocalDateTime.now().minusDays(3), arrayListOf()))
 
         return list
     }
@@ -35,7 +32,7 @@ class MoodRepository @Inject constructor(): IMoodRepository {
      * @return a mood entry
      */
      fun get(): Mood {
-        return Mood(6,6, LocalDateTime.now())
+        return Mood(6,6, LocalDateTime.now(), arrayListOf(1))
     }
 
     /**
