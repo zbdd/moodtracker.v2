@@ -23,4 +23,4 @@ MVVM
 
 The model layer 
 ----------
-![Imgur Image](https://i.imgur.com/nncJdvy.png)
+![Imgur Image](https://i.imgur.com/4Jxx2TH.png)
