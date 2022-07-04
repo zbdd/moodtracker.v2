@@ -27,13 +27,13 @@ class MoodRepository @Inject constructor(): IMoodRepository {
         runBlocking {
             withContext(Dispatchers.IO) {
                 transaction {
-                    SchemaUtils.create(MoodsTable, ActivitiesTable, MoodActivitiesTable)
+                    SchemaUtils.create(MoodsDAO, ActivitiesDAO, MoodsActivitiesDAO)
                 }
             }
         }
 
             val mood1 = transaction { MoodEntity.new {
-                mood = "3"
+                mood = 3
                 dateTime = LocalDateTime.now()
             } }
             val activity1 = transaction {
@@ -47,13 +47,13 @@ class MoodRepository @Inject constructor(): IMoodRepository {
             }
         }
             transaction {
-                MoodActivitiesTable.insert {
+                MoodsActivitiesDAO.insert {
                     it[moodId] = mood1.id
                     it[activityId] = activity1.id
                 }
             }
             transaction {
-                MoodActivitiesTable.insert {
+                MoodsActivitiesDAO.insert {
                     it[moodId] = mood1.id
                     it[activityId] = activity2.id
                 }
