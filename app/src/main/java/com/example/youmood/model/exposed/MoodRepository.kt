@@ -1,7 +1,5 @@
 package com.example.youmood.model.exposed
 
-import androidx.lifecycle.MutableLiveData
-import com.example.youmood.model.IBaseRepository
 import com.example.youmood.model.IMoodRepository
 import com.example.youmood.model.Mood
 import kotlinx.coroutines.Dispatchers
@@ -71,7 +69,7 @@ class MoodRepository @Inject constructor(): IMoodRepository {
         return returnArray
     }
 
-    override fun create(mood: Mood) {
+    override fun create(entry: Mood) {
 
     }
 
@@ -79,7 +77,7 @@ class MoodRepository @Inject constructor(): IMoodRepository {
         return transaction { MoodEntity.findById(id)?.toMood() }
     }
 
-    override fun update(mood: Mood) {
+    override fun update(entry: Mood) {
         TODO("Not yet implemented")
     }
 
