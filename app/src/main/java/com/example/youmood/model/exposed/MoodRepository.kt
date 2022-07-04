@@ -16,6 +16,8 @@ import javax.inject.Inject
 
 /**
  * Mood repository build upon the Exposed framework
+ * Opens our DB connection, sets its defaults, loads some dummy data if in testing
+ * Ensures Interface IMoodRepository is fulfilled
  *
  * @author Zac Durber
  */
@@ -60,12 +62,7 @@ class MoodRepository @Inject constructor(): IMoodRepository {
                 }
             }
     }
-    var moodList = MutableLiveData<ArrayList<Mood>>()
 
-    /**
-     * Test data for simulating a call to local storage
-     * @return a list of Moods
-     */
     override fun readAll(): ArrayList<Mood>{
         val returnArray = ArrayList<Mood>()
         transaction {
@@ -90,11 +87,6 @@ class MoodRepository @Inject constructor(): IMoodRepository {
         TODO("Not yet implemented")
     }
 
-    /**
-     * Retrieve one Mood entry from the repository
-     *
-     * @return a mood entry
-     */
      fun get(id: Int): Mood? {
         return MoodEntity.findById(id)?.toMood()
     }
