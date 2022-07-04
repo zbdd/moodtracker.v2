@@ -88,6 +88,11 @@ class MainActivity @Inject constructor() : ComponentActivity(), IMainView {
         horizontalArrangement = Arrangement.SpaceEvenly) {
             Text(text = formatter.format(mood.dateTime), color = MaterialTheme.colors.primary)
             Text(text = mood.mood.toString(), color = MaterialTheme.colors.primary, fontWeight = FontWeight.Bold)
+            mood.activities.indices.forEach {
+                var separator = ""
+                if (it > 0) separator = ","
+                Text(text = separator + mood.activities[it].name.trim())
+            }
         }
     }
 

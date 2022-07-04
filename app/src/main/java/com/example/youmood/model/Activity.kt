@@ -5,7 +5,7 @@ package com.example.youmood.model
  *
  * @author Zac Durber
  */
-data class Activity(
-    val Id: Int,
-    val name: String
+data class Activity (
+    var id: Int,
+    var name: String
     )

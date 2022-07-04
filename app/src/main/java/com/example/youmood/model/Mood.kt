@@ -1,5 +1,10 @@
 package com.example.youmood.model
 
+import org.jetbrains.exposed.dao.IntEntity
+import org.jetbrains.exposed.dao.IntEntityClass
+import org.jetbrains.exposed.dao.id.EntityID
+import org.jetbrains.exposed.dao.id.IntIdTable
+import org.jetbrains.exposed.sql.javatime.datetime
 import java.time.LocalDateTime
 import javax.inject.Inject
 
@@ -9,9 +14,9 @@ import javax.inject.Inject
  *
  * @author Zac Durber
  */
-data class Mood @Inject constructor(
-    val Id: Int,
-    val mood: Int,
-    val dateTime: LocalDateTime,
-    val activities: ArrayList<Int>
-)
+data class Mood (
+    var id: Int,
+    var mood: Int,
+    var dateTime: LocalDateTime,
+    var activities: ArrayList<Activity>
+    )

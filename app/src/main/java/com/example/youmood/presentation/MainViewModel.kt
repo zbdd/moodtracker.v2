@@ -1,6 +1,7 @@
 package com.example.youmood.presentation
 
 import androidx.lifecycle.ViewModel
+import com.example.youmood.model.IBaseRepository
 import com.example.youmood.model.IMoodRepository
 import com.example.youmood.model.Mood
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -19,7 +20,7 @@ class MainViewModel @Inject constructor(val moodRepository: IMoodRepository): IM
     ViewModel() {
 
     init {
-        moodRepository.getData()
+        moodRepository.readAll()
     }
 
     override fun onViewCreated() {
@@ -31,6 +32,6 @@ class MainViewModel @Inject constructor(val moodRepository: IMoodRepository): IM
     }
 
     override fun getMoodList(): MutableList<Mood> {
-        return moodRepository.getAll()
+        return moodRepository.readAll()
     }
 }
