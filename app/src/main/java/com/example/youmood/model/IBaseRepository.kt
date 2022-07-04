@@ -5,10 +5,10 @@ package com.example.youmood.model
  *
  * @author Zac Durber
  */
-interface IBaseRepository {
-    fun create(mood: Mood)
-    fun readAll(): ArrayList<Mood>
-    fun read(id: Int): Mood
-    fun update(mood: Mood)
-    fun delete(id: Int)
+interface IBaseRepository<T> {
+    fun create(obj: T)
+    fun readAll(): ArrayList<T>
+    fun read(id: Int): T?
+    fun update(obj: T)
+    fun delete(id: Int): Boolean
 }

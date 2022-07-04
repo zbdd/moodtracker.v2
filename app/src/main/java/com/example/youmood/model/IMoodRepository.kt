@@ -1,4 +1,4 @@
 package com.example.youmood.model
 
-interface IMoodRepository: IBaseRepository {
+interface IMoodRepository: IBaseRepository<Mood> {
 }

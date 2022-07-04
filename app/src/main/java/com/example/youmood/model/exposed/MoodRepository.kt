@@ -1,6 +1,7 @@
 package com.example.youmood.model.exposed
 
 import androidx.lifecycle.MutableLiveData
+import com.example.youmood.model.IBaseRepository
 import com.example.youmood.model.IMoodRepository
 import com.example.youmood.model.Mood
 import kotlinx.coroutines.Dispatchers
@@ -74,18 +75,18 @@ class MoodRepository @Inject constructor(): IMoodRepository {
     }
 
     override fun create(mood: Mood) {
-        TODO("Not yet implemented")
+
     }
 
-    override fun read(id: Int): Mood {
-        TODO("Not yet implemented")
+    override fun read(id: Int): Mood? {
+        return transaction { MoodEntity.findById(id)?.toMood() }
     }
 
     override fun update(mood: Mood) {
         TODO("Not yet implemented")
     }
 
-    override fun delete(id: Int) {
+    override fun delete(id: Int): Boolean {
         TODO("Not yet implemented")
     }
 
