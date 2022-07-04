@@ -19,7 +19,7 @@ The ViewModel layer implements JetBrains brilliant new UI-as-code library known 
 
 MVVM 
 ----------
-![Imgur Image](https://i.imgur.com/ut44I6C.png)
+![Imgur Image](https://i.imgur.com/g1jtr11.jpg)
 
 The model layer 
 ----------
